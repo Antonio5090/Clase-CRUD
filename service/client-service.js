@@ -17,21 +17,24 @@ const eliminarCliente = (id) => {
   });
 }
 
-const detalleCliente = (id) => {
-  return fetch(`http://localhost:3000/perfil/${id}`,).then(respuesta => {
-    return respuesta.json();
-  })
+const detalleCliente = async (id) => {
+  const respuesta = await fetch(`http://localhost:3000/perfil/${id}`);
+  return await respuesta.json();
 }
 
-const actualizarCliente = (id, nombre, email) => {
-  return fetch(`http://localhost:3000/perfil/${id}`, {
-    method: "PUT",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({nombre, email}),
-}).then(respuesta => respuesta)
-.catch(error => console.log(error))
+const actualizarCliente = async (id, nombre, email) => {
+  try {
+    const respuesta = await fetch(`http://localhost:3000/perfil/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nombre, email }),
+    });
+    return respuesta;
+  } catch (error) {
+    return console.log(error);
+  }
 }
 
 export const ClientesServices = {
