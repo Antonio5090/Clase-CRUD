@@ -1,4 +1,4 @@
-import { VerListaClientes } from "../service/client-service.js";
+import { ClientesServices } from "../service/client-service.js";
 
 const crearNuevaLinea = (nombre, email) => {
 const linea = document.createElement("tr");
@@ -31,11 +31,14 @@ return linea;
 
 const table = document.querySelector("[data-table]");
 
-VerListaClientes.listaDeClientes()
-.then((data) => {
-data.forEach((perfil) => {
-    const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+ClientesServices.listaDeClientes().then((data) => {
+data.forEach(({nombre, email, id}) => {
+    const nuevaLinea = crearNuevaLinea(nombre, email, id);
     table.appendChild(nuevaLinea);
 });
 })
-.catch((error) => alert("Ocurrió un error"));
+.catch((error) => alert("servidor no iniciado"));
+
+const eliminarCliente = (id) => {
+    
+}

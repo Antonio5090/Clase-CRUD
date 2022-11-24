@@ -6,14 +6,19 @@
       "id": 1
     },
     {
-      "nombre": "Antonio",
-      "email": "Antonio@alura.com",
-      "id": 2
+      "nombre": "Laura",
+      "email": "laura@alura.com",
+      "id": "a6818973-a6ff-49af-bb02-95d321f58cc9"
     },
     {
-      "nombre": "Monserrat",
-      "email": "Monserrat@alura.com",
-      "id": 3
+      "nombre": "Laura",
+      "email": "anthony5090@outlook.com",
+      "id": "8b6bd203-2889-4b2f-8967-da2a77ffe585"
+    },
+    {
+      "nombre": "Antonio",
+      "email": "joseantonio.aguilerasanchez0@gmail.com",
+      "id": "0df9aa96-bb7c-4257-9931-d5e534af8d51"
     }
   ]
 }
