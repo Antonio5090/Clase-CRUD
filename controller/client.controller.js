@@ -1,6 +1,6 @@
 import { ClientesServices } from "../service/client-service.js";
 
-const crearNuevaLinea = (nombre, email) => {
+const crearNuevaLinea = (nombre, email, id) => {
 const linea = document.createElement("tr");
 const contenido = `
     <td class="td" data-td>
@@ -18,7 +18,7 @@ const contenido = `
         </a>
         </li>
         <li>
-        <button class="simple-button simple-button--delete" type="button">
+        <button class="simple-button simple-button--delete" type="button" id=${id}>
             Eliminar
         </button>
         </li>
@@ -26,6 +26,14 @@ const contenido = `
     </td>
 `;
 linea.innerHTML = contenido;
+const botonEliminar = linea.querySelector("button");
+botonEliminar.addEventListener("click", () => {
+    const idbtn = botonEliminar.id;
+    ClientesServices.eliminarCliente(idbtn).then(() => {
+    }).catch((error) => {
+        alert('No se pudo eliminar')
+    });
+})
 return linea;
 };
 
@@ -39,6 +47,3 @@ data.forEach(({nombre, email, id}) => {
 })
 .catch((error) => alert("servidor no iniciado"));
 
-const eliminarCliente = (id) => {
-    
-}
